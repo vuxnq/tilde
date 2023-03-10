@@ -33,67 +33,8 @@
   };
 
   const COMMANDS = new Map([
-    [
-      'a',
-      {
-        name: 'AWS',
-        suggestions: [
-          'a/cognito/v2/idp/user-pools',
-          'a/dynamodbv2#item-explorer',
-        ],
-        url: 'https://us-west-2.console.aws.amazon.com/console/home',
-      },
-    ],
-    [
-      'b',
-      {
-        name: 'Dribbble',
-        searchTemplate: '/search/{}',
-        suggestions: [
-          'b/shots/popular/product-design',
-          'b/shots/popular/web-design',
-        ],
-        url: 'https://dribbble.com/shots/popular',
-      },
-    ],
-    [
-      'c',
-      {
-        name: 'Calendar',
-        searchTemplate: '/calendar/u/0/r/search?q={}',
-        suggestions: ['c/calendar/u/1/r', 'c/calendar/u/2/r'],
-        url: 'https://calendar.google.com/calendar/u/0/r',
-      },
-    ],
-    [
-      'd',
-      {
-        name: 'Drive',
-        searchTemplate: '/drive/u/0/search?q={}',
-        suggestions: ['d/drive/u/1/my-drive', 'd/drive/u/2/my-drive'],
-        url: 'https://drive.google.com/drive/u/0/my-drive',
-      },
-    ],
-    [
-      'e',
-      {
-        name: 'DALL·E',
-        suggestions: ['e/history', 'e/collections'],
-        url: 'https://labs.openai.com/',
-      },
-    ],
-    [
-      'f',
-      {
-        name: 'Figma',
-        suggestions: [
-          'f/file/new',
-          'f/file/new?editor_type=whiteboard',
-          'f/community',
-        ],
-        url: 'https://www.figma.com/files/recent',
-      },
-    ],
+    ['b', { name: 'Bakalari', url: 'https://oa-poruba.bakalari.cz', },],
+    ['c', { name: 'ChatGPT', url: 'https://chat.openai.com/chat' }],
     [
       'g',
       {
@@ -108,59 +49,20 @@
         url: 'https://github.com',
       },
     ],
-    [
-      'h',
-      {
-        name: 'Hypem',
-        searchTemplate: '/search/{}',
-        suggestions: ['h/stack', 'h/mixes', 'h/popular/lastweek', 'h/tags'],
-        url: 'https://hypem.com/popular',
-      },
-    ],
-    ['i', { name: 'ChatGPT', url: 'https://chat.openai.com/chat' }],
-    [
-      'k',
-      {
-        name: 'Keep',
-        searchTemplate: '/u/0/#search/text={}',
-        suggestions: ['k/u/1', 'k/u/2'],
-        url: 'https://keep.google.com/u/0',
-      },
-    ],
-    [
-      'l',
-      {
-        name: 'LinkedIn',
-        searchTemplate: '/search/results/all/?keywords={}',
-        suggestions: ['l/in/me/', 'l/messaging', 'l/jobs'],
-        url: 'https://www.linkedin.com/feed/',
-      },
-    ],
-    [
-      'm',
-      {
-        name: 'Mail',
-        suggestions: ['m/u/1/inbox', 'm/u/2/inbox'],
-        url: 'https://mail.proton.me/u/0/inbox',
-      },
-    ],
+    ['i', { name: 'Instagram', url: 'https://instagram.com', },],
+    ['ic', { name: 'iCloud', url: 'https://icloud.com', },],
+    ['l', { name: 'Last.fm', url: 'https://www.last.fm/user/vuxnq', },],
+    ['m', { name: 'Mail', url: 'https://mail.google.com/mail/u/0/#inbox', },],
+    ['me', { name: 'Messenger', url: 'https://messenger.com', },],
     [
       'n',
       {
         name: 'Notion',
         suggestions: [
-          'n/7c11e98c9c504ec2aa106dae83c6b803#todo',
-          'n/03aac6c591aa435b90f5c9b007409af3#study',
+          'n/school-459497d4432a4cc28d515e09ad39587f',
+          'n/computer-713b56fd8481442eba22a53b5ad7bb85',
         ],
         url: 'https://www.notion.so',
-      },
-    ],
-    [
-      'o',
-      {
-        name: 'Discord',
-        suggestions: ['o/channels/803833399684628520#friends'],
-        url: 'https://discord.com/channels/@me',
       },
     ],
     [
@@ -180,18 +82,9 @@
         suggestions: [
           'r/r/webdev',
           'r/r/startpages',
-          'r/r/onebag',
-          'r/r/fujix',
+          'r/r/unixporn',
         ],
         url: 'https://www.reddit.com',
-      },
-    ],
-    [
-      's',
-      {
-        name: 'Slack',
-        suggestions: ['s/client/T09M5UWSV#shiftnudge'],
-        url: 'https://app.slack.com',
       },
     ],
     [
@@ -199,20 +92,7 @@
       {
         name: 'Twitter',
         searchTemplate: '/search?q={}',
-        suggestions: [
-          't/explore/tabs/trending',
-          't/hashtag/buildinpublic?f=live',
-        ],
         url: 'https://twitter.com/home',
-      },
-    ],
-    ['u', { name: 'Supabase', url: 'https://app.supabase.com/projects' }],
-    [
-      'v',
-      {
-        name: 'Vercel',
-        suggestions: ['v/dashboard/activity', 'v/dashboard/usage'],
-        url: 'https://vercel.com/dashboard',
       },
     ],
     [
@@ -230,16 +110,7 @@
         name: 'YouTube',
         searchTemplate: '/results?search_query={}',
         suggestions: ['y/trending', 'y/music', 'y/gaming', 'y/sports'],
-        url: 'https://youtube.com/feed/subscriptions',
-      },
-    ],
-    [
-      '0',
-      {
-        name: 'localhost',
-        searchTemplate: ':{}',
-        suggestions: ['0 54323', '0 8000'],
-        url: 'http://localhost:3000',
+        url: 'https://youtube.com',
       },
     ],
     [':)', { name: 'vuxnq', url: 'https://vuxnq.me' }],
@@ -253,6 +124,7 @@
   }
 
   :root {
+    --accent: #96a3f3;
     --opacity: #18182588;
     --edge: #313244;
     --color-background-light: #1e1e2e;
@@ -264,12 +136,12 @@
       Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;
     --font-size-1: 1rem;
     --font-size-2: 3rem;
-    --font-size-base: clamp(16px, 1.2vw, 18px);
+    --font-size-base: clamp(16px, 1.2vw, 20px);
     --font-weight-bold: 700;
-    --font-weight-normal: 400;
+    --font-weight-normal: 500;
     --line-height-base: 1.4;
     --space-1: 0.5rem;
-    --space-2: 1rem;
+    --space-2: 0.5rem;
     --space-3: 4rem;
     --transition-speed: 200ms;
   }
@@ -278,6 +150,7 @@
     background: linear-gradient(var(--color-background), var(--color-background-light));
     color: var(--color-text);
     font-family: var(--font-family);
+    font-weight: var(--font-weight-normal);
     font-size: var(--font-size-base);
     line-height: var(--line-height-base);
   }
@@ -315,11 +188,19 @@
 
     .name {
       color: var(--color-text-subtle);
-      transition: color var(--transition-speed);
+      transition: var(--transition-speed);
+      padding-inline: 5px;
+      border-radius: 5px;
     }
 
     .command:where(:focus, :hover) .name {
-      color: var(--color-text);
+      color: var(--color-background);
+      background-color: var(--color-text);
+    }
+
+    .command:where(:active) .name {
+      color: var(--accent);
+      transition: .1s;
     }
 
     @media (min-width: 500px) {
@@ -340,13 +221,6 @@
       .commands {
         columns: 4;
         max-width: 40rem;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .commands {
-        columns: 6;
-        max-width: 60rem;
       }
     }
   </style>
@@ -796,20 +670,20 @@
   #background :nth-child(1) {
     animation-delay: 0.1s;
     left: -1vw;
-    filter: blur(24px)
+    filter: blur(8px)
   }
 
   #background :nth-child(2) {
     left: 0;
     right: 0;
     margin-inline: auto;
-    filter: blur(16px)
+    filter: blur(4px)
   }
 
   #background :nth-child(3) {
     animation-delay: 0.2s;
     right: -2vw;
-    filter: blur(32px)
+    filter: blur(16px)
   }
 
   commands-component {
