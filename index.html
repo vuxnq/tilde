@@ -4,8 +4,26 @@
 <meta name="robots" content="noindex" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+
 <title>~</title>
 <script>
+  // mouse parallax
+  document.addEventListener("mousemove", function (event) {
+    if (/Android|BlackBerry|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) === false) {
+      this.getElementById("background").querySelectorAll('img').forEach(layer => {
+        const speed = layer.getAttribute("speed")
+        const x = (window.innerWidth - event.clientX * speed) / 100
+        const y = (window.innerHeight - event.clientY * speed) / 100
+
+        layer.style.transform = "translate(" + x + "px, " + y + "px)"
+      })
+    }
+  })
+
   const CONFIG = {
     commandPathDelimiter: '/',
     commandSearchDelimiter: ' ',
@@ -224,16 +242,22 @@
         url: 'http://localhost:3000',
       },
     ],
-    ['?', { name: 'README', url: 'https://github.com/xvvvyz/tilde' }],
+    [':)', { name: 'vuxnq', url: 'https://vuxnq.me' }],
   ]);
 </script>
 
 <style>
+  @font-face {
+    font-family: common;
+    src: url(assets/font/Outfit.ttf);
+  }
+
   :root {
     --color-background: #11111b;
+    --color-background-light: #1e1e2e;
     --color-text-subtle: #a6adc8;
     --color-text: #cdd6f4;
-    --font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
+    --font-family: common, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
       Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;
     --font-size-1: 1rem;
     --font-size-2: 3rem;
@@ -256,7 +280,7 @@
   }
 
   html {
-    background-color: var(--color-background);
+    background: linear-gradient(var(--color-background), var(--color-background-light));
     color: var(--color-text);
     font-family: var(--font-family);
     font-size: var(--font-size-base);
@@ -265,6 +289,39 @@
 
   body {
     margin: 0;
+  }
+
+  #background {
+    position: fixed;
+    height: 102vh;
+    width: 100vw;
+    z-index: -1;
+  }
+
+  #background img {
+    animation: background-load 0.8s ease;
+    position: absolute;
+    transition: 0.2s ease-out;
+    height: 100%;
+  }
+
+  #background :nth-child(1) {
+    animation-delay: 0.1s;
+    left: -1vw;
+    filter: blur(24px)
+  }
+
+  #background :nth-child(2) {
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    filter: blur(16px)
+  }
+
+  #background :nth-child(3) {
+    animation-delay: 0.2s;
+    right: -2vw;
+    filter: blur(32px)
   }
 </style>
 
@@ -762,6 +819,11 @@
 </style>
 
 <main>
+  <div id="background">
+    <img speed="2" src="assets/background/plastic.webp">
+    <img speed="1" src="assets/background/curve.webp">
+    <img speed="3" src="assets/background/monstera.webp">
+  </div>
   <commands-component></commands-component>
   <search-component></search-component>
 </main>
